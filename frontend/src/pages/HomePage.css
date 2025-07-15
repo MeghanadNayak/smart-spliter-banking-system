@@ -1,0 +1,89 @@
+/* frontend/src/pages/HomePage.css */
+
+.home-page-container {
+    min-height: calc(100vh - 60px); /* Full height minus navbar height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e0f7fa; /* Very light cyan blue */
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden; /* Animation ke liye */
+    position: relative;
+}
+
+/* Animated circles */
+.animated-circle-1 {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgba(179, 229, 252, 0.5);
+    animation: moveCircle1 15s infinite alternate;
+}
+
+.animated-circle-2 {
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: rgba(207, 216, 220, 0.5);
+    animation: moveCircle2 20s infinite alternate;
+}
+
+/* Keyframes for animation */
+@keyframes moveCircle1 {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(100px, 150px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes moveCircle2 {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-100px, -100px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Heading style */
+.home-page-container h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    color: #00796b; /* Darker teal */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Paragraph style */
+.home-page-container p {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    color: #546e7a; /* Greyish blue */
+}
+
+/* Link/Button style */
+.home-page-container .get-started-button {
+    padding: 15px 30px;
+    background-color: #00796b; /* Darker teal */
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.home-page-container .get-started-button:hover {
+    background-color: #004d40; /* Even darker teal */
+    transform: scale(1.05);
+}

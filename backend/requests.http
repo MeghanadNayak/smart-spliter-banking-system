@@ -1,0 +1,76 @@
+### Register User
+# Har baar naye user register karne ke liye username aur email badalna mat bhoolna.
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "mytestuser_01",
+    "email": "mytestuser01@example.com",
+    "password": "password123"
+}
+
+### Login User
+# Is request ko chalao aur response se 'token' copy karo. Yeh token har protected request mein lagega.
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "mytestuser01@example.com",
+    "password": "password123"
+}
+
+### Create Scheme
+# Is request ko chalao aur response se '_id' copy karo. Yeh ID splitting rule banane mein use hogi.
+# Authorization header mein login token lagana zaroori hai.
+POST http://localhost:5000/api/schemes
+Content-Type: application/json
+Authorization: Bearer YOUR_LOGIN_TOKEN_HERE_PASTE_HERE
+
+{
+    "schemeName": "My Vacation Fund",
+    "description": "Saving for a big trip.",
+    "targetAmount": 50000
+}
+
+### Create Splitting Rule
+# Scheme ID ko 'Create Scheme' request ke response se copy karke yahan paste karo.
+# Authorization header mein login token lagana zaroori hai.
+POST http://localhost:5000/api/rules
+Content-Type: application/json
+Authorization: Bearer YOUR_LOGIN_TOKEN_HERE_PASTE_HERE
+
+{
+    "schemeId": "PASTE_YOUR_SCHEME_ID_HERE",
+    "splitType": "percentage",
+    "value": 25
+}
+
+### Deposit Funds
+# Funds deposit karne ke liye.
+# Authorization header mein login token lagana zaroori hai.
+POST http://localhost:5000/api/transactions/deposit
+Content-Type: application/json
+Authorization: Bearer YOUR_LOGIN_TOKEN_HERE_PASTE_HERE
+
+{
+    "amount": 5000,
+    "description": "Initial Salary Deposit"
+}
+
+### Withdraw Funds
+# Funds withdraw karne ke liye.
+# Authorization header mein login token lagana zaroori hai.
+POST http://localhost:5000/api/transactions/withdraw
+Content-Type: application/json
+Authorization: Bearer YOUR_LOGIN_TOKEN_HERE_PASTE_HERE
+
+{
+    "amount": 1000,
+    "description": "Monthly Expenses Withdrawal"
+}
+
+### Get All Transactions
+# Saare transactions dekhne ke liye.
+# Authorization header mein login token lagana zaroori hai.
+GET http://localhost:5000/api/transactions
+Authorization: Bearer YOUR_LOGIN_TOKEN_HERE_PASTE_HERE
